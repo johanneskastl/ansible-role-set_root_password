@@ -4,5 +4,5 @@
 - name: 'set the root password'
   user:
     name: 'root'
-    password: "{{ ansible_become_pass | password_hash(password_hash_mechanism, salt_for_root_password | default('') ) }}"
+    password: "{{ root_password | default(ansible_become_pass) | password_hash(password_hash_mechanism, salt_for_root_password | default('') ) }}"
     update_password: 'always'
