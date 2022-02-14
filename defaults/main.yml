@@ -1,0 +1,4 @@
+---
+# set_root_password/defaults/main.yml
+
+password_hash_mechanism: 'sha512'
