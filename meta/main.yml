@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'set_root_password'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Set the root password (including SALT to make this idempotent)'
   company: 'B1 Systems GmbH'
