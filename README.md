@@ -14,6 +14,7 @@ Role Variables
 - `root_password`: the desired root password, if not set this will use the `ansible_become_password` variable
 - `salt_for_root_password`: a SALT used for ...ahem... salting the root password
 - `password_hash_mechanism`: password hashing mechanism, defaults to `sha512`
+- `root_password_rounds`: (optional) For older systems (Raspberry Pi 1, I am looking at you...), using the default of 656000 rounds leads to long login times. Setting this parameter to something like `5001` allows the user to explicitly specify this.
 
 You can generate the salt with e.g. `openssl rand -base64 16 | tr -d += | head -c 16; echo ""` or similar. If you do not set this, then the task will be shown as changed each time, even though the password stays the same. But the salt is changed each time...
 
