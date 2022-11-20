@@ -1,8 +1,10 @@
 ---
 # set_root_password/tasks/main.yml
 
-- name: 'set the root password'
+- name: 'set the root password (without specifying rounds)'
   user:
     name: 'root'
     password: "{{ root_password | default(ansible_become_pass) | password_hash(password_hash_mechanism, salt_for_root_password | default('') ) }}"
     update_password: 'always'
+  when:
+    - root_password_rounds is undefined
