@@ -4,7 +4,7 @@
 - name: 'Set the root password (without specifying rounds)'
   ansible.builtin.user:
     name: 'root'
-    password: "{{ root_password | default(ansible_become_pass) | password_hash(password_hash_mechanism, salt_for_root_password | default('') ) }}"
+    password: "{{ root_password | default(ansible_become_pass) | password_hash(password_hash_mechanism, salt_for_root_password | default('')) }}"
     update_password: 'always'
   when:
     - root_password_rounds is undefined
@@ -12,7 +12,7 @@
 - name: 'Set the root password (with explicitly specifying rounds)'
   ansible.builtin.user:
     name: 'root'
-    password: "{{ root_password | default(ansible_become_pass) | password_hash(password_hash_mechanism, salt_for_root_password | default(''), rounds=root_password_rounds ) }}"
+    password: "{{ root_password | default(ansible_become_pass) | password_hash(password_hash_mechanism, salt_for_root_password | default(''), rounds=root_password_rounds) }}"
     update_password: 'always'
   when:
     - root_password_rounds is defined
