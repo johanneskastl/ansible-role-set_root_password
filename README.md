@@ -1,3 +1,5 @@
+![Ansible Lint](https://github.com/johanneskastl/ansible-role-set_root_password/workflows/Ansible%20Lint/badge.svg)
+
 set_root_password
 =========
 
